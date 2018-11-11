@@ -8,7 +8,9 @@ while True:
     else:
         f_in = open(f_input, 'r')
         break
+
 letter = input('Введите букву: ')
+
 with open ('input.txt') as f_in:
     with open('output.txt','w') as f_out:
         lines = f_in.readlines()
@@ -17,3 +19,5 @@ with open ('input.txt') as f_in:
             for word in words:
                 if letter in word:
                     print(word, file=f_out,end=' ')
+if len(f_out) == 0:
+    print('Таких букв в файле нет:с',file=f_out)
