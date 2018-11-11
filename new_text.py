@@ -10,6 +10,7 @@ while True:
         break
 
 letter = input('Введите букву: ')
+count = 0
 
 with open ('input.txt') as f_in:
     with open('output.txt','w') as f_out:
@@ -18,6 +19,7 @@ with open ('input.txt') as f_in:
             words = line.split()
             for word in words:
                 if letter in word:
-                    print(word, file=f_out,end=' ')
-if len(f_out) == 0:
-    print('Таких букв в файле нет:с',file=f_out)
+                    count += 1
+                    print(word, file=f_out, end=' ')
+        if count == 0:
+            print('Таких букв в файле нет!', file=f_out)
